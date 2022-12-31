@@ -3,6 +3,7 @@
 	import IconArrowRight from '~icons/iconoir/arrow-right'
 	import { shown } from '$lib/stores/sidebar'
 	import { clickOutside } from '$lib/directives/clickOutside'
+	import Menu from './Menu.svelte'
 
 	function toggle(value: boolean) {
 		return () => ($shown = value)
@@ -27,4 +28,8 @@
 	>
 		<svelte:component this={Icon} />
 	</button>
+
+	<div class="h-full pt-10 overflow-y-auto">
+		<Menu />
+	</div>
 </div>

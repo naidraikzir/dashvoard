@@ -2,7 +2,12 @@
 	import '$lib/app.postcss'
 	import Header from '$lib/components/Header.svelte'
 	import Sidebar from '$lib/components/Sidebar.svelte'
+	import { routes } from '$lib/stores/routes'
 	import { shown as sidebarShown } from '$lib/stores/sidebar'
+	import type { LayoutData } from './$types'
+
+	export let data: LayoutData
+	$routes = data.routes
 </script>
 
 <div class="h-full bg-gray-100 overflow-x-hidden overflow-y-auto">
