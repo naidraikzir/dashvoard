@@ -24,6 +24,7 @@
 >
 	<button
 		class="absolute top-0 left-full bg-white w-10 h-10 flex items-center justify-center text-2xl"
+		aria-label="sidebar toggle"
 		on:click|stopPropagation={toggle(!$shown)}
 	>
 		<svelte:component this={Icon} />
