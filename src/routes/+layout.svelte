@@ -13,14 +13,19 @@
 
 <Meta />
 
-<div class="h-full bg-gray-100 overflow-x-hidden overflow-y-auto">
+<div
+	class="h-full bg-neutral-100 dark:bg-neutral-900 dark:text-white overflow-x-hidden overflow-y-auto transition-none"
+>
 	<Header />
 	<Sidebar />
 
 	<div
-		class="container mx-auto mt-10 p-4 transition-all will-change-auto"
+		class="mt-12 duration-150"
 		class:lg:ml-72={$sidebarShown}
+		style="transition-property: margin;"
 	>
-		<slot />
+		<div class="container mx-auto p-4">
+			<slot />
+		</div>
 	</div>
 </div>

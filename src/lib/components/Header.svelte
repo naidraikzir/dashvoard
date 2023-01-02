@@ -8,8 +8,9 @@
 </script>
 
 <div
-	class="fixed inset-x-0 top-0 h-10 flex items-center bg-white pl-10"
+	class="fixed inset-x-0 top-0 h-12 flex items-center bg-white dark:bg-black dark:text-white pl-10 duration-150"
 	class:lg:ml-72={$sidebarShown}
+	style="transition-property: margin;"
 >
 	<div class="text-lg px-2">{title}</div>
 </div>
