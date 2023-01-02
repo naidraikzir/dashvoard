@@ -4,7 +4,7 @@ Dashboard template.
 
 - Sveltekit
 - Tailwindcss
-- Iconify via unplugin-icons
+- Iconify/iconoir via unplugin-icons ([Browse](https://icones.js.org/collection/iconoir))
 
 # create-svelte
 
