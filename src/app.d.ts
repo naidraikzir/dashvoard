@@ -3,6 +3,7 @@
 // and what to do when importing types
 /// <reference types="@sveltejs/kit" />
 /// <reference types="unplugin-icons/types/svelte" />
+declare const APP_NAME: string
 declare namespace App {
 	// interface Error {}
 	// interface Locals {}

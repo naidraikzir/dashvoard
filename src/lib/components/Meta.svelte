@@ -1,0 +1,18 @@
+<script lang="ts">
+	import { page } from '$app/stores'
+	import titleify from '$lib/utils/titleify'
+
+	export let title = ''
+	export let description = 'Demo'
+
+	// eslint-disable-next-line no-undef
+	const appName = titleify(APP_NAME, '-')
+
+	$: route = $page?.route?.id?.split('/').filter((part) => !!part)
+	$: title = route?.length ? titleify(route[route.length - 1], '-') : 'Dashboard'
+</script>
+
+<svelte:head>
+	<title>{title ? `${title} | ${appName}` : appName}</title>
+	<meta name="description" content={description} />
+</svelte:head>

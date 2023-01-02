@@ -6,7 +6,10 @@ const config = {
 	plugins: [
 		sveltekit(),
 		Icons({ compiler: 'svelte' })
-	]
+	],
+	define: {
+		APP_NAME: JSON.stringify(process.env.npm_package_name)
+	}
 };
 
 export default config;
