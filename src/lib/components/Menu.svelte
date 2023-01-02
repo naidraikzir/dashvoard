@@ -27,5 +27,5 @@
 </script>
 
 {#each menu as item}
-	<a href={item.url} class="block p-4" class:bg-gray-200={isActive(item)}>{item.label}</a>
+	<a href={item.url} class="block p-4" class:bg-gray-200={isActive(item)} on:click>{item.label}</a>
 {/each}

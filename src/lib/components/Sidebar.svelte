@@ -30,6 +30,6 @@
 	</button>
 
 	<div class="h-full pt-10 overflow-y-auto">
-		<Menu />
+		<Menu on:click={onOutsideClick} />
 	</div>
 </div>
