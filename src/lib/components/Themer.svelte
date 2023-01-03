@@ -11,6 +11,10 @@
 	$: Icon = isDark ? IconHalfMoon : IconSunLight
 </script>
 
-<button class="p-4 text-xl" on:click={toggle} aria-label="toggle theme">
+<button
+	class="p-4 text-xl focus:bg-neutral-200 dark:focus:bg-neutral-800"
+	on:click={toggle}
+	aria-label="toggle theme"
+>
 	<svelte:component this={Icon} />
 </button>

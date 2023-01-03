@@ -1,6 +1,6 @@
 <script lang="ts">
-	import IconArrowLeft from '~icons/iconoir/arrow-left'
-	import IconArrowRight from '~icons/iconoir/arrow-right'
+	import IconArrowLeft from '~icons/iconoir/nav-arrow-left'
+	import IconArrowRight from '~icons/iconoir/nav-arrow-right'
 	import { shown } from '$lib/stores/sidebar'
 	import { clickOutside } from '$lib/directives/clickOutside'
 	import Menu from './Menu.svelte'
@@ -24,7 +24,7 @@
 	use:clickOutside={onOutsideClick}
 >
 	<button
-		class="absolute top-0 left-full w-10 h-12 flex items-center justify-center text-2xl bg-white dark:bg-black dark:text-white"
+		class="absolute top-0 left-full w-12 h-12 flex items-center justify-center text-2xl bg-white dark:bg-black dark:text-white focus:bg-neutral-200 dark:focus:bg-neutral-900"
 		aria-label="sidebar toggle"
 		on:click|stopPropagation={toggle(!$shown)}
 	>

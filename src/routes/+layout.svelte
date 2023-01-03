@@ -14,7 +14,7 @@
 <Meta />
 
 <div
-	class="h-full bg-neutral-100 dark:bg-neutral-900 dark:text-white overflow-x-hidden overflow-y-auto transition-none"
+	class="h-full bg-neutral-200 dark:bg-neutral-900 dark:text-white overflow-x-hidden overflow-y-auto transition-none"
 >
 	<Header />
 	<Sidebar />
