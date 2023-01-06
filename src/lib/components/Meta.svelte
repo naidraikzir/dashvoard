@@ -3,7 +3,7 @@
 	import titleify from '$lib/utils/titleify'
 
 	export let title = ''
-	export let description = ''
+	export let description = 'A Dashboard App'
 
 	// eslint-disable-next-line no-undef
 	const appName = titleify(APP_NAME, '-')
