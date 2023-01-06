@@ -17,7 +17,7 @@
 </script>
 
 <div
-	class="fixed flex flex-col w-72 inset-y-0 left-0 transition-transform bg-gray-50 dark:bg-gray-900 z-10"
+	class="fixed flex flex-col w-72 inset-y-0 left-0 transition-transform bg-gray-50 dark:bg-gray-800 z-10"
 	class:-translate-x-full={!$shown}
 	class:translate-0={$shown}
 	use:clickOutside={onOutsideClick}

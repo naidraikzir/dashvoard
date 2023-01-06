@@ -1,33 +1,51 @@
 <script lang="ts">
+	import IconoirHome from '~icons/iconoir/home'
+	import IconoirSettings from '~icons/iconoir/settings'
 	import { page } from '$app/stores'
 	import { routes } from '$lib/stores/routes'
+	import { SidebarGroup, SidebarItem, SidebarWrapper } from 'flowbite-svelte'
 
-	interface MenuItem {
+	type MenuItem = {
 		url: string
 		label: string
+		name: keyof typeof icons
 	}
 
-	$: menu = [
-		{ url: '/', label: 'Dashboard' },
+	const icons = {
+		dashboard: IconoirHome,
+		settings: IconoirSettings
+	}
+
+	$: menu = <MenuItem[]>[
+		{ url: '/', label: 'Dashboard', name: 'dashboard' },
 		...$routes.map((item) => ({
 			url: `/${item}`,
 			label: item
 				.split('-')
 				.map((word) => word.charAt(0).toUpperCase() + word.substring(1))
-				.join(' ')
+				.join(' '),
+			name: item
 		}))
 	]
 
-	$: menuItemClass = (item: MenuItem) => {
-		return (item.url === '/' && $page.route?.id === item.url) ||
-			(item.url !== '/' && $page.route?.id?.startsWith(item.url))
-			? 'bg-gray-200 dark:bg-gray-800 dark:text-white'
-			: 'text-gray-500 dark:text-gray-400'
-	}
+	$: isMenuItemActive = (url: string) =>
+		(url === '/' && $page.route?.id === url) || (url !== '/' && $page.route?.id?.startsWith(url))
 </script>
 
-{#each menu as item}
-	<a href={item.url} class="block p-4 {menuItemClass(item)}" on:click>
-		{item.label}
-	</a>
-{/each}
+<SidebarWrapper>
+	<SidebarGroup>
+		{#each menu as { url, label, name }}
+			<SidebarItem
+				{label}
+				href={url}
+				active={isMenuItemActive(url)}
+				class="transition"
+				spanClass="ml-3 {isMenuItemActive(url) ? 'text-black dark:text-white' : 'text-gray-500'}"
+			>
+				<svelte:fragment slot="icon">
+					<svelte:component this={icons[name]} />
+				</svelte:fragment>
+			</SidebarItem>
+		{/each}
+	</SidebarGroup>
+</SidebarWrapper>

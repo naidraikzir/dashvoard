@@ -31,13 +31,13 @@
 	}
 </script>
 
-<button class="lg:hidden p-2 text-xl" on:click|stopPropagation={onMenuClick(!shown)}>
+<button class="lg:hidden -ml-2 mb-4 p-2 text-xl" on:click|stopPropagation={onMenuClick(!shown)}>
 	<IconoirMenu />
 </button>
 
-<div class="relative flex px-2">
+<div class="relative flex">
 	<div
-		class="w-48 lg:ml-0 mt-4 absolute lg:static lg:translate-x-0 lg:opacity-100 lg:visible transition-all {menuClass}"
+		class="w-48 lg:ml-0 absolute lg:static lg:translate-x-0 lg:opacity-100 lg:visible transition-all {menuClass}"
 		use:clickOutside={onMenuClick(false)}
 	>
 		<Listgroup active>
@@ -49,7 +49,7 @@
 		</Listgroup>
 	</div>
 
-	<div class="flex-1 lg:ml-8 mt-4">
+	<div class="flex-1 lg:ml-8">
 		<slot />
 	</div>
 </div>

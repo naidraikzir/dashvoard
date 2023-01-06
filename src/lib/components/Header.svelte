@@ -10,7 +10,7 @@
 </script>
 
 <div
-	class="fixed inset-x-0 top-0 h-12 flex items-center bg-white dark:bg-gray-900 pl-12 duration-150"
+	class="fixed inset-x-0 top-0 h-12 flex items-center bg-white dark:bg-gray-900 pl-12 duration-150 z-10"
 	class:lg:ml-72={$sidebarShown}
 	style="transition-property: margin;"
 >
