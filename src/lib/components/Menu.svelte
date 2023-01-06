@@ -18,22 +18,16 @@
 		}))
 	]
 
-	$: isActive = (item: MenuItem) => {
-		return (
-			(item.url === '/' && $page.route?.id === item.url) ||
+	$: menuItemClass = (item: MenuItem) => {
+		return (item.url === '/' && $page.route?.id === item.url) ||
 			(item.url !== '/' && $page.route?.id?.startsWith(item.url))
-		)
+			? 'bg-gray-200 dark:bg-gray-800 dark:text-white'
+			: 'text-gray-500 dark:text-gray-400'
 	}
 </script>
 
 {#each menu as item}
-	<a
-		href={item.url}
-		class="block p-4"
-		class:bg-neutral-200={isActive(item)}
-		class:dark:bg-neutral-900={isActive(item)}
-		on:click
-	>
+	<a href={item.url} class="block p-4 {menuItemClass(item)}" on:click>
 		{item.label}
 	</a>
 {/each}
