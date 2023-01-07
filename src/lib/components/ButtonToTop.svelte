@@ -7,6 +7,11 @@
 	$: css = visible ? 'visible opacity-100 translate-y-0' : 'invisible opacity-0 translate-y-10'
 </script>
 
-<Button class="fixed bottom-4 right-4 !p-2 transition-all {css}" color="light" size="xl" on:click>
+<Button
+	class="fixed bottom-4 right-4 !p-2 shadow-md transition-all {css}"
+	color="light"
+	size="xl"
+	on:click
+>
 	<IconoirArrowUp />
 </Button>

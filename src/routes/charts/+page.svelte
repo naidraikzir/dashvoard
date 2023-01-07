@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { Card } from 'flowbite-svelte'
 	import Chart from '$lib/components/Chart.svelte'
 
 	const chartData = {
@@ -17,6 +18,16 @@
 	}
 </script>
 
-<Chart class="mt-8" type="bar" data={chartData.bar} />
-<Chart class="mt-8" type="pie" data={chartData.pie} />
-<Chart class="mt-8" types={{ data1: 'areaSpline', data2: 'bar' }} data={chartData.areaSpline} />
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+	<Card class="!max-w-full col-span-3 lg:col-span-2">
+		<Chart type="bar" data={chartData.bar} />
+	</Card>
+
+	<Card class="!max-w-full col-span-3 lg:col-span-1">
+		<Chart type="pie" data={chartData.pie} />
+	</Card>
+
+	<Card class="!max-w-full col-span-3">
+		<Chart types={{ data1: 'areaSpline', data2: 'bar' }} data={chartData.areaSpline} />
+	</Card>
+</div>
