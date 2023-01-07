@@ -3,8 +3,9 @@
 Dashboard template.
 
 - Sveltekit
-- Tailwindcss
-- Iconify/iconoir via unplugin-icons ([Browse](https://icones.js.org/collection/iconoir))
+- [Tailwindcss](https://tailwindcss.com/) via [Flowbite](https://github.com/themesberg/flowbite-svelte)
+- Iconify/iconoir via [unplugin-icons](https://github.com/antfu/unplugin-icons) ([Browse](https://icones.js.org/collection/iconoir))
+- [Billboard.js](https://github.com/naver/billboard.js)
 
 # create-svelte
 

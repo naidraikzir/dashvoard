@@ -21,7 +21,7 @@
 
 	<div
 		class="mt-12 duration-150"
-		class:lg:ml-72={$sidebarShown}
+		class:lg:ml-64={$sidebarShown}
 		style="transition-property: margin;"
 	>
 		<div class="container mx-auto p-4">

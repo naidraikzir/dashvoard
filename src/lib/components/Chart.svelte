@@ -1,7 +1,7 @@
 <script lang="ts">
 	import 'billboard.js/dist/theme/datalab.min.css'
+	import type { Chart, ChartTypes } from 'billboard.js'
 	import bb, {
-		type Chart,
 		area,
 		areaLineRange,
 		areaSpline,
@@ -21,12 +21,24 @@
 	} from 'billboard.js'
 	import { createEventDispatcher, onMount } from 'svelte'
 
-	const types = {
+	interface OnlyType {
+		type: ChartTypes
+		types?: never
+	}
+
+	interface OnlyTypes {
+		types: { [key: string]: ChartTypes }
+		type?: never
+	}
+
+	type WhichType = OnlyType | OnlyTypes
+
+	const chartTypes = {
 		area,
-		'area-line-range': areaLineRange,
-		'area-spline': areaSpline,
-		'area-spline-range': areaSplineRange,
-		'area-step': areaStep,
+		areaLineRange,
+		areaSpline,
+		areaSplineRange,
+		areaStep,
 		bar,
 		bubble,
 		candlestick,
@@ -40,19 +52,31 @@
 		step
 	}
 
-	export let type: keyof typeof types
-	export let data: (string | number)[][]
-
 	const dispatch = createEventDispatcher()
-
+	export let data: (string | number)[][]
 	let chart: Chart
 	let chartContainer: HTMLElement
+
+	function whichType(): WhichType {
+		if ($$props.types)
+			return {
+				types: Object.keys($$props.types).reduce(
+					(obj, key) => ({
+						...obj,
+						[key]: chartTypes[<keyof typeof chartTypes>$$props.types[key]]()
+					}),
+					{}
+				)
+			}
+		if ($$props.type) return { type: chartTypes[<keyof typeof chartTypes>$$props.type]() }
+		return { type: chartTypes.area() }
+	}
 
 	onMount(() => {
 		chart = bb.generate({
 			bindto: chartContainer,
 			data: {
-				type: types[type](),
+				...whichType(),
 				columns: data,
 				onclick: (d) => dispatch('click', d)
 			}

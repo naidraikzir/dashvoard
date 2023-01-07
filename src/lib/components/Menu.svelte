@@ -1,5 +1,6 @@
 <script lang="ts">
 	import IconoirHome from '~icons/iconoir/home'
+	import IconoirGraphUp from '~icons/iconoir/graph-up'
 	import IconoirSettings from '~icons/iconoir/settings'
 	import { page } from '$app/stores'
 	import { routes } from '$lib/stores/routes'
@@ -13,6 +14,7 @@
 
 	const icons = {
 		dashboard: IconoirHome,
+		charts: IconoirGraphUp,
 		settings: IconoirSettings
 	}
 
@@ -39,8 +41,9 @@
 				{label}
 				href={url}
 				active={isMenuItemActive(url)}
-				class="transition"
 				spanClass="ml-3 {isMenuItemActive(url) ? 'text-black dark:text-white' : 'text-gray-500'}"
+				activeClass="flex items-center p-2 text-base font-normal text-gray-900 bg-gray-200 dark:bg-gray-700 rounded dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+				on:click
 			>
 				<svelte:fragment slot="icon">
 					<svelte:component this={icons[name]} />
