@@ -5,7 +5,7 @@
 	import ProfileMenu from './ProfileMenu.svelte'
 	import Themer from './Themer.svelte'
 
-	$: route = $page?.route?.id?.split('/').filter((part) => !!part)
+	$: route = $page?.url.pathname.split('/').filter((part) => !!part)
 	$: title = route?.length ? titleify(route[route.length - 1], '-') : 'Dashboard'
 </script>
 

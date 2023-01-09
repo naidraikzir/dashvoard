@@ -31,7 +31,8 @@
 	]
 
 	$: isMenuItemActive = (url: string) =>
-		(url === '/' && $page.route?.id === url) || (url !== '/' && $page.route?.id?.startsWith(url))
+		(url === '/' && $page.url.pathname === url) ||
+		(url !== '/' && $page.url.pathname.startsWith(url))
 </script>
 
 <SidebarWrapper>

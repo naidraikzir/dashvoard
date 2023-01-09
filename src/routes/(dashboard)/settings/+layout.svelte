@@ -26,7 +26,7 @@
 
 	$: isMenuActive = (item: MenuItem) => {
 		const itemParts = item.href.split('/')
-		const routeParts = $page.route.id?.split('/') || []
+		const routeParts = $page.url.pathname.split('/') || []
 		return routeParts[routeParts.length - 1] === itemParts[itemParts.length - 1]
 	}
 </script>
