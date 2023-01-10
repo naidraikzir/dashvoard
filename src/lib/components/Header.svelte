@@ -1,4 +1,5 @@
 <script lang="ts">
+	import IconoirBell from '~icons/iconoir/bell'
 	import { page } from '$app/stores'
 	import { shown as sidebarShown } from '$lib/stores/sidebar'
 	import titleify from '$lib/utils/titleify'
@@ -17,5 +18,14 @@
 	<div class="flex-1 text-lg px-4 whitespace-nowrap overflow-hidden">{title}</div>
 
 	<Themer />
+
+	<a
+		class="w-12 h-12 flex items-center justify-center text-xl focus:bg-gray-200 dark:focus:bg-gray-800"
+		href="/notifications"
+		title="link to notifications"
+	>
+		<IconoirBell />
+	</a>
+
 	<ProfileMenu />
 </div>

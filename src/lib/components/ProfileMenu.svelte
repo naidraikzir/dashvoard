@@ -17,5 +17,5 @@
 </button>
 
 <Dropdown triggeredBy="#user-menu-toggle">
-	<DropdownItem>Log Out</DropdownItem>
+	<DropdownItem href="/login">Log Out</DropdownItem>
 </Dropdown>
