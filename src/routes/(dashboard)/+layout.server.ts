@@ -2,7 +2,7 @@ import type { LayoutServerLoad } from './$types'
 
 const exclude = ['notifications']
 
-export const load: LayoutServerLoad = async () => {
+export const load: LayoutServerLoad = async ({ locals }) => {
 	const modules = import.meta.glob('./**/+page.svelte')
 	const routes = new Set(
 		Object.keys(modules)
@@ -13,6 +13,7 @@ export const load: LayoutServerLoad = async () => {
 	)
 
 	return {
-		routes: [...routes]
+		routes: [...routes],
+		sidebar: locals.sidebar
 	}
 }

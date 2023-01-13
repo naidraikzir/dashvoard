@@ -1,7 +1,7 @@
 <script lang="ts">
 	import IconoirBell from '~icons/iconoir/bell'
 	import { page } from '$app/stores'
-	import { shown as sidebarShown } from '$lib/stores/sidebar'
+	import { sidebarShown } from '$lib/stores/sidebar'
 	import titleify from '$lib/utils/titleify'
 	import ProfileMenu from './ProfileMenu.svelte'
 	import Themer from './Themer.svelte'

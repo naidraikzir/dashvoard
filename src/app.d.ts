@@ -6,7 +6,9 @@
 declare const APP_NAME: string
 declare namespace App {
 	// interface Error {}
-	// interface Locals {}
+	interface Locals {
+		sidebar: string
+	}
 	// interface PageData {}
 	// interface Platform {}
 }
