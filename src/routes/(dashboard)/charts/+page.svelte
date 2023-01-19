@@ -20,14 +20,14 @@
 
 <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
 	<Card class="!max-w-full col-span-3 lg:col-span-2">
-		<Chart type="bar" data={chartData.bar} />
+		<Chart class="h-96" type="bar" data={chartData.bar} />
 	</Card>
 
 	<Card class="!max-w-full col-span-3 lg:col-span-1">
-		<Chart type="pie" data={chartData.pie} />
+		<Chart class="h-96" type="pie" data={chartData.pie} />
 	</Card>
 
 	<Card class="!max-w-full col-span-3">
-		<Chart types={{ data1: 'areaSpline', data2: 'bar' }} data={chartData.areaSpline} />
+		<Chart class="h-96" types={{ data1: 'areaSpline', data2: 'bar' }} data={chartData.areaSpline} />
 	</Card>
 </div>
