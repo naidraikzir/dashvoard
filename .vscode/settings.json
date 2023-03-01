@@ -2,5 +2,9 @@
 	"[svelte]": {
 		"editor.defaultFormatter": "svelte.svelte-vscode",
 		"editor.formatOnSave": true
+	},
+	"[typescript]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode",
+		"editor.formatOnSave": true
 	}
 }
