@@ -7,6 +7,8 @@ specifiers:
   '@sveltejs/kit': ^1.10.0
   '@typescript-eslint/eslint-plugin': ^5.54.0
   '@typescript-eslint/parser': ^5.54.0
+  ag-grid-community: ^29.1.0
+  ag-grid-svelte: ^0.1.4
   autoprefixer: ^10.4.13
   billboard.js: ^3.7.4
   classnames: ^2.3.2
@@ -33,6 +35,8 @@ devDependencies:
   '@sveltejs/kit': 1.10.0_svelte@3.55.1+vite@4.1.4
   '@typescript-eslint/eslint-plugin': 5.54.0_6mj2wypvdnknez7kws2nfdgupi
   '@typescript-eslint/parser': 5.54.0_ycpbpc6yetojsgtrx3mwntkhsu
+  ag-grid-community: 29.1.0
+  ag-grid-svelte: 0.1.4_ag-grid-community@29.1.0
   autoprefixer: 10.4.13_postcss@8.4.21
   billboard.js: 3.7.4
   classnames: 2.3.2
@@ -629,6 +633,19 @@ packages:
     resolution: {integrity: sha512-xjIYgE8HBrkpd/sJqOGNspf8uHG+NOHGOw6a/Urj8taM2EXfdNAH2oFcPeIFfsv3+kz/mJrS5VuMqbNLjCa2vw==}
     engines: {node: '>=0.4.0'}
     hasBin: true
+    dev: true
+
+  /ag-grid-community/29.1.0:
+    resolution: {integrity: sha512-QJZi1qP7fpK/sxXbEFZWR3/Jf3HVRK0Xm3Tw55tn0ehNdkuSxRBOmOvjE3lPWqgRlT2rcL1xmjdqM4mpB1fobQ==}
+    dev: true
+
+  /ag-grid-svelte/0.1.4_ag-grid-community@29.1.0:
+    resolution: {integrity: sha512-yKJKZ1o3aE9dgaK4WtmjG+vA9GKqErznvFisDnzi+PPGWXDCSNWuoDGCUpEFJtHKrfooLoUZZHYHi8I9sZ+BCA==}
+    peerDependencies:
+      ag-grid-community: ^28
+    dependencies:
+      ag-grid-community: 29.1.0
+      svelte: 3.55.1
     dev: true
 
   /ajv/6.12.6:

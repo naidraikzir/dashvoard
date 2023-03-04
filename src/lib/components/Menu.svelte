@@ -1,10 +1,11 @@
 <script lang="ts">
+	import { SidebarGroup, SidebarItem, SidebarWrapper } from 'flowbite-svelte'
 	import IconoirHome from '~icons/iconoir/home'
 	import IconoirGraphUp from '~icons/iconoir/graph-up'
 	import IconoirSettings from '~icons/iconoir/settings'
+	import IconoirTable2Columns from '~icons/iconoir/table-2-columns'
 	import { page } from '$app/stores'
 	import { routes } from '$lib/stores/routes'
-	import { SidebarGroup, SidebarItem, SidebarWrapper } from 'flowbite-svelte'
 
 	type MenuItem = {
 		url: string
@@ -15,6 +16,7 @@
 	const icons = {
 		dashboard: IconoirHome,
 		charts: IconoirGraphUp,
+		table: IconoirTable2Columns,
 		settings: IconoirSettings
 	}
 
