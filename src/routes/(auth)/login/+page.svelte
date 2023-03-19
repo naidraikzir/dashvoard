@@ -1,8 +1,11 @@
-<script>
+<script lang="ts">
 	import IconoirUser from '~icons/iconoir/user'
 	import IconoirLock from '~icons/iconoir/lock'
-	import { Label, Input, InputAddon, ButtonGroup, Card, Button } from 'flowbite-svelte'
+	import { Label, Input, InputAddon, ButtonGroup, Card, Button, Alert } from 'flowbite-svelte'
 	import Themer from '$lib/components/Themer.svelte'
+	import type { ActionData } from './$types'
+
+	export let form: ActionData
 </script>
 
 <div
@@ -12,8 +15,12 @@
 		<Themer />
 	</div>
 
-	<form action="/" class="flex-1" method="POST">
+	<form class="flex-1" method="POST">
 		<Card class="mx-auto gap-4">
+			{#if form?.error}
+				<Alert color="red" border>{form.error}</Alert>
+			{/if}
+
 			<div>
 				<Label for="username" class="block mb-2">Username</Label>
 				<ButtonGroup class="w-full">
