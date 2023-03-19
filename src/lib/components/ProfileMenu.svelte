@@ -16,6 +16,6 @@
 	<IconoirUserCircleAlt class="text-xl" />
 </button>
 
-<Dropdown triggeredBy="#user-menu-toggle">
+<Dropdown triggeredBy="#user-menu-toggle" frameClass="!rounded-none">
 	<DropdownItem href="/login">Log Out</DropdownItem>
 </Dropdown>
