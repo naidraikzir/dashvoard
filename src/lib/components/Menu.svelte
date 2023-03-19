@@ -1,34 +1,7 @@
 <script lang="ts">
-	import IconoirHome from '~icons/iconoir/home'
-	import IconoirGraphUp from '~icons/iconoir/graph-up'
-	import IconoirSettings from '~icons/iconoir/settings'
-	import { page } from '$app/stores'
-	import { routes } from '$lib/stores/routes'
 	import { SidebarGroup, SidebarItem, SidebarWrapper } from 'flowbite-svelte'
-
-	type MenuItem = {
-		url: string
-		label: string
-		name: keyof typeof icons
-	}
-
-	const icons = {
-		dashboard: IconoirHome,
-		charts: IconoirGraphUp,
-		settings: IconoirSettings
-	}
-
-	$: menu = <MenuItem[]>[
-		{ url: '/', label: 'Dashboard', name: 'dashboard' },
-		...$routes.map((item) => ({
-			url: `/${item}`,
-			label: item
-				.split('-')
-				.map((word) => word.charAt(0).toUpperCase() + word.substring(1))
-				.join(' '),
-			name: item
-		}))
-	]
+	import { page } from '$app/stores'
+	import menu from '$lib/fixtures/menu'
 
 	$: isMenuItemActive = (url: string) =>
 		(url === '/' && $page.url.pathname === url) ||
@@ -37,7 +10,7 @@
 
 <SidebarWrapper>
 	<SidebarGroup>
-		{#each menu as { url, label, name }}
+		{#each menu as { url, label, icon }}
 			<SidebarItem
 				{label}
 				href={url}
@@ -47,7 +20,7 @@
 				on:click
 			>
 				<svelte:fragment slot="icon">
-					<svelte:component this={icons[name]} />
+					<svelte:component this={icon} />
 				</svelte:fragment>
 			</SidebarItem>
 		{/each}
