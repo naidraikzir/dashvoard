@@ -15,8 +15,8 @@
 				{label}
 				href={url}
 				active={isMenuItemActive(url)}
-				aClass="flex items-center px-4 py-3 text-base font-normal text-gray-500 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 transition"
-				activeClass="flex items-center px-4 py-3 text-base font-normal text-gray-900 bg-gray-200 dark:bg-gray-700 dark:text-white dark:hover:bg-gray-700"
+				class="rounded-none px-4 py-3 hover:bg-gray-200 transition {!isMenuItemActive(url) &&
+					'!text-gray-500 !dark:text-gray-400'}"
 				on:click
 			>
 				<svelte:fragment slot="icon">
