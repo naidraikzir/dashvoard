@@ -1,11 +1,14 @@
 <script lang="ts">
 	import IconoirUser from '~icons/iconoir/user'
 	import IconoirLock from '~icons/iconoir/lock'
-	import { Label, Input, InputAddon, ButtonGroup, Card, Button, Alert } from 'flowbite-svelte'
+	import { Label, Input, InputAddon, ButtonGroup, Card, Button } from 'flowbite-svelte'
+	import { superForm } from 'sveltekit-superforms/client'
 	import Themer from '$lib/components/Themer.svelte'
-	import type { ActionData } from './$types'
+	import type { PageData } from './$types'
 
-	export let form: ActionData
+	export let data: PageData
+
+	const { form, errors, constraints, enhance } = superForm(data.form)
 </script>
 
 <div
@@ -15,20 +18,25 @@
 		<Themer />
 	</div>
 
-	<form class="flex-1" method="POST">
+	<form class="flex-1" method="POST" use:enhance>
 		<Card class="mx-auto gap-4">
-			{#if form?.error}
-				<Alert color="red" border>{form.error}</Alert>
-			{/if}
-
 			<div>
 				<Label for="username" class="block mb-2">Username</Label>
 				<ButtonGroup class="w-full">
 					<InputAddon>
 						<IconoirUser />
 					</InputAddon>
-					<Input id="username" placeholder="Username" name="username" required />
+					<Input
+						id="username"
+						placeholder="Username"
+						name="username"
+						bind:value={$form.username}
+						{...$constraints.username}
+					/>
 				</ButtonGroup>
+				{#if $errors.username}
+					<div class="text-red-500 text-xs mt-1">{$errors.username}</div>
+				{/if}
 			</div>
 
 			<div>
@@ -37,8 +45,18 @@
 					<InputAddon>
 						<IconoirLock />
 					</InputAddon>
-					<Input type="password" id="password" placeholder="Password" name="password" required />
+					<Input
+						type="password"
+						id="password"
+						placeholder="Password"
+						name="password"
+						bind:value={$form.password}
+						{...$constraints.password}
+					/>
 				</ButtonGroup>
+				{#if $errors.password}
+					<div class="text-red-500 text-xs mt-1">{$errors.password}</div>
+				{/if}
 			</div>
 
 			<div class="mt-4">

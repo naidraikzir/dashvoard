@@ -1,18 +1,28 @@
 import { fail, redirect } from '@sveltejs/kit'
-import type { Actions } from './$types'
+import { superValidate } from 'sveltekit-superforms/server'
+import { z } from 'zod'
+import type { Actions, PageServerLoad } from './$types'
 
 export const prerender = false
 
+const loginSchema = z.object({
+	username: z.string().refine((u) => u === 'Username', { message: 'Username is wrong' }),
+	password: z.string().refine((u) => u === 'Password', { message: 'Password is wrong' })
+})
+
+export const load: PageServerLoad = async (event) => {
+	const form = await superValidate(event, loginSchema)
+	return { form }
+}
+
 export const actions: Actions = {
-	default: async ({ request }) => {
-		const data = await request.formData()
-		const username = data.get('username')
-		const password = data.get('password')
+	default: async (event) => {
+		const form = await superValidate(event, loginSchema)
 
-		if (username !== 'Username' || password !== 'Password') {
-			return fail(400, { error: 'Invalid credentials' })
+		if (!form.valid) {
+			return fail(400, { form })
+		} else {
+			throw redirect(303, '/')
 		}
-
-		throw redirect(303, '/')
 	}
 }
