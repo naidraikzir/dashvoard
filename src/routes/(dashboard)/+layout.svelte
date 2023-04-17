@@ -3,9 +3,8 @@
 	import Header from '$lib/components/Header.svelte'
 	import Sidebar from '$lib/components/Sidebar.svelte'
 	import { sidebarShown, initializeSidebar } from '$lib/stores/sidebar'
-	import type { LayoutData } from './$types'
 
-	export let data: LayoutData
+	export let data
 	initializeSidebar(data.sidebar)
 
 	let root: HTMLElement

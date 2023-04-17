@@ -4,9 +4,8 @@
 	import { Label, Input, InputAddon, ButtonGroup, Card, Button } from 'flowbite-svelte'
 	import { superForm } from 'sveltekit-superforms/client'
 	import Themer from '$lib/components/Themer.svelte'
-	import type { PageData } from './$types'
 
-	export let data: PageData
+	export let data
 
 	const { form, errors, constraints, enhance } = superForm(data.form)
 </script>
