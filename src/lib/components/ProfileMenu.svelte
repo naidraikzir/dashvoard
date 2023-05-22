@@ -10,7 +10,7 @@
 	class="flex w-12 lg:w-auto h-12 lg:px-4 items-center justify-center focus:bg-gray-200 dark:focus:bg-gray-800"
 	aria-label="user menu toggle"
 >
-	<div class="hidden lg:inline-block max-w-[120px] mr-4 overflow-hidden whitespace-nowrap">
+	<div class="hidden lg:inline-block max-w-[120px] mr-4 overflow-hidden whitespace-nowrap truncate">
 		{username}
 	</div>
 	<IconoirUserCircleAlt class="text-xl" />

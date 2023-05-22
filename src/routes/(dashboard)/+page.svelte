@@ -4,5 +4,9 @@
 
 <Alert color="red">
 	<h1>Welcome to SvelteKit</h1>
-	<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+	<p>
+		Visit <a href="https://kit.svelte.dev" target="_blank" rel="noopener noreferrer"
+			>kit.svelte.dev</a
+		> to read the documentation
+	</p>
 </Alert>
