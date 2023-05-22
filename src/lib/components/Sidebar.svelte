@@ -1,4 +1,5 @@
 <script lang="ts">
+	import IconoirGithub from '~icons/iconoir/github'
 	import IconoirNavArrowLeft from '~icons/iconoir/nav-arrow-left'
 	import IconoirNavArrowRight from '~icons/iconoir/nav-arrow-right'
 	import { sidebarShown } from '$lib/stores/sidebar'
@@ -30,7 +31,19 @@
 		<svelte:component this={Icon} />
 	</button>
 
-	<div class="flex-1 mt-12 overflow-y-auto">
+	<div class="flex-1 overflow-y-auto py-12">
 		<Menu on:click={onOutsideClick} />
+	</div>
+
+	<div class="absolute bottom-0 left-0 z-10">
+		<a
+			class="p-4 flex items-center justify-center focus:bg-gray-200 dark:focus:bg-gray-900"
+			href="https://github.com/naidraikzir/dashvoard"
+			title="link to github"
+			target="_blank"
+			rel="noopener noreferrer"
+		>
+			<IconoirGithub />
+		</a>
 	</div>
 </div>
