@@ -1,12 +1,18 @@
 <script lang="ts">
-	import { Alert } from 'flowbite-svelte'
+	import { Card } from 'flowbite-svelte'
+	import Weather from '$lib/components/Weather.svelte'
+	import Quote from '$lib/components/Quote.svelte'
+
+	export let data
+	const { quote } = data
 </script>
 
-<Alert color="red">
-	<h1>Welcome to SvelteKit</h1>
-	<p>
-		Visit <a href="https://kit.svelte.dev" target="_blank" rel="noopener noreferrer"
-			>kit.svelte.dev</a
-		> to read the documentation
-	</p>
-</Alert>
+<div class="grid lg:grid-cols-12 gap-4">
+	<Card class="!max-w-none flex items-center justify-center lg:col-span-3">
+		<Weather />
+	</Card>
+
+	<Card class="!max-w-none flex items-center justify-center lg:col-span-4">
+		<Quote {quote} />
+	</Card>
+</div>
